@@ -1,3 +1,4 @@
+/* Mantengo tutto il CSS esistente ma modifico solo le parti relative alla navigazione */
 :root {
     --color-primary: #030303;
     --color-secondary: #b38c57;
@@ -15,6 +16,7 @@
     --glass-effect: rgba(255, 255, 255, 0.1);
 }
 
+/* Cookie Banner */
 .cookie-banner {
     position: fixed;
     bottom: -100%;
@@ -92,13 +94,10 @@
     background: rgba(255, 255, 255, 0.1);
 }
 
+/* Animations */
 @keyframes glare {
-    0% {
-        background-position: -100% 0;
-    }
-    100% {
-        background-position: 200% 0;
-    }
+    0% { background-position: -100% 0; }
+    100% { background-position: 200% 0; }
 }
 
 @keyframes shimmer {
@@ -140,7 +139,7 @@ body {
     padding: 0 20px;
 }
 
-/* Navbar */
+/* Navbar - Modificato per rimuovere il burger menu */
 .navbar {
     position: fixed;
     top: 0;
@@ -222,35 +221,11 @@ body {
     text-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
 }
 
+/* Navigation Links - Modificato per essere sempre visibile */
 .nav-links {
     display: flex;
     align-items: center;
     z-index: 2;
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.98);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-
-    .nav-links.active {
-        display: flex !important;
-        opacity: 1;
-        visibility: visible;
-    }
 }
 
 .nav-links a {
@@ -263,15 +238,6 @@ body {
     position: relative;
     transition: var(--transition);
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-@media (max-width: 768px) {
-    .nav-links a {
-        margin: 20px 0;
-        font-size: 24px;
-        color: var(--color-white);
-        text-align: center;
-    }
 }
 
 .nav-links a::before {
@@ -313,53 +279,20 @@ body {
     width: 100%;
 }
 
-.hamburger {
-    display: none;
-    cursor: pointer;
-    z-index: 10000;
-    position: relative;
-    width: 50px;
-    height: 50px;
-    background: var(--color-gold);
-    border-radius: 8px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-right: 0;
-    border: 2px solid var(--color-gold-dark);
-    transition: background-color 0.3s ease;
-}
-
-.hamburger:hover {
-    background: var(--color-gold-dark);
-}
-
+/* Mobile Navigation */
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex;
+    .navbar {
+        padding: 15px 20px;
+        justify-content: center;
     }
-}
 
-.hamburger span {
-    display: block;
-    width: 30px;
-    height: 4px;
-    background: #000;
-    margin: 4px 0;
-    border-radius: 4px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
+    .nav-links {
+        display: none;
+    }
 
-.hamburger span.active:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger span.active:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger span.active:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
+    .logo span {
+        font-size: 24px;
+    }
 }
 
 /* Hero Section */
@@ -432,48 +365,6 @@ body {
     text-transform: uppercase;
     font-weight: 300;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 18px 45px;
-    background: var(--gradient-gold);
-    color: var(--color-white);
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: var(--transition);
-    animation: fadeInUp 1s ease 0.6s;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(179, 140, 87, 0.3);
-}
-
-.cta-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255, 255, 255, 0.5),
-        transparent
-    );
-    transition: 0.6s;
-}
-
-.cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(179, 140, 87, 0.4);
-}
-
-.cta-button:hover::before {
-    left: 100%;
 }
 
 /* About Section */
@@ -867,90 +758,6 @@ body {
     }
 }
 
-/* Mobile Menu */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: rgba(0, 0, 0, 0.98);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 99999;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease;
-        padding: 80px 0;
-    }
-
-    .nav-links.active {
-        display: flex !important;
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .nav-links a {
-        margin: 15px 0;
-        font-size: 24px;
-        color: var(--color-white);
-        text-align: center;
-        width: 100%;
-        padding: 10px 0;
-    }
-
-    .nav-links a:hover {
-        color: var(--color-gold);
-        transform: scale(1.05);
-    }
-
-    .hamburger {
-        display: flex;
-        cursor: pointer;
-        z-index: 10000;
-        position: relative;
-        width: 50px;
-        height: 50px;
-        background: var(--color-gold);
-        border-radius: 8px;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin-right: 0;
-        border: 2px solid var(--color-gold-dark);
-        transition: background-color 0.3s ease;
-    }
-
-    .hamburger:hover {
-        background: var(--color-gold-dark);
-    }
-
-    .hamburger span {
-        display: block;
-        width: 30px;
-        height: 4px;
-        background: #000;
-        margin: 4px 0;
-        border-radius: 4px;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(7px, 7px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
-    }
-}
-
 /* Responsive Design */
 @media (max-width: 1200px) {
     .container {
@@ -993,79 +800,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    .navbar {
-        padding: 15px 20px;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .nav-links {
-        display: none;
-        position: fixed;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background: rgba(0, 0, 0, 0.95);
-        padding: 30px;
-        z-index: 999;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .nav-links a {
-        margin: 20px 0;
-        font-size: 24px;
-        color: var(--color-white);
-        text-align: center;
-        display: block;
-        width: 100%;
-    }
-
-    .hamburger {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 50px;
-        height: 50px;
-        background: var(--color-gold);
-        border-radius: 8px;
-        margin-right: 0;
-        border: 2px solid var(--color-gold-dark);
-        transition: var(--transition);
-    }
-
-    .hamburger span {
-        display: block;
-        width: 30px;
-        height: 4px;
-        background: #000;
-        margin: 3px 0;
-        border-radius: 4px;
-        transition: var(--transition);
-    }
-
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(7px, 7px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
-    }
-
-    .logo span {
-        font-size: 28px;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
     .hero-content {
         padding: 0 15px;
     }
@@ -1129,11 +863,6 @@ body {
         height: 90px;
     }
 
-    .cta-button {
-        padding: 15px 35px;
-        font-size: 0.9rem;
-    }
-
     .gallery-grid {
         grid-template-columns: 1fr;
     }
@@ -1165,7 +894,11 @@ body {
     }
 
     .logo span {
-        font-size: 24px;
+        font-size: 20px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
     }
 
     .hero h1 {
@@ -1183,11 +916,6 @@ body {
         width: 120px;
         height: 75px;
         margin-bottom: 30px;
-    }
-
-    .cta-button {
-        padding: 12px 30px;
-        font-size: 0.85rem;
     }
 
     .about, .menu, .gallery, .contact {
