@@ -471,13 +471,7 @@ body {
         margin: 20px auto 0;
     }
 
-    .hero h1 {
-        font-size: 2rem;
-        margin: 10px 0;
-        letter-spacing: 2px;
-    }
-
-    .hero p {
+    .hero h1, .hero p {
         display: none;
     }
 }
